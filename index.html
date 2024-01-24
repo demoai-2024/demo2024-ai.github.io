@@ -138,11 +138,11 @@
                 </div>
                 <div data-v-3e732f5c="" class="functionRight"><img data-v-3e732f5c=""
                         src="image/website/ic.png"
-                        alt="" class="imgList"><img data-v-3e732f5c=""
+                        alt="image/website/ic_output.png" class="imgList"><img data-v-3e732f5c=""
                         src="image/website/transistor.png"
-                        alt="" class="imgList active"><img data-v-3e732f5c=""
+                        alt="image/website/transistor_output.png" class="imgList active"><img data-v-3e732f5c=""
                         src="image/website/chip.png"
-                        alt="" class="imgList"></div>
+                        alt="image/website/chip_output.png" class="imgList"></div>
                 <div data-v-3e732f5c="" class="btnBox">
                     <div data-v-3e732f5c="" class="btnLeft">
                         <div data-v-3e732f5c="" class="uploadBtn"> Upload <input data-v-3e732f5c="" type="file"
@@ -265,6 +265,43 @@
             }
 
         }</script>
+    <script content="text/javascript">
+            // Get all the images with the class "imgList"
+            var imgList = document.querySelectorAll('.imgList');
+
+            // Add a click event listener to each image
+            imgList.forEach(function (img) {
+                img.addEventListener('click', function () {
+                    // Remove the "active" class from all images
+                    imgList.forEach(function (otherImg) {
+                        otherImg.classList.remove('active');
+                    });
+
+                    // Add the "active" class to the clicked image
+                    img.classList.add('active');
+                });
+            });
+        </script>
+        <script>
+            // Get all the images with the class "imgList"
+            var imgList = document.querySelectorAll('.imgList');
+        
+            // Get the element with the class "oldimgUrl"
+            var oldimgUrl = document.querySelector('.oldimgUrl img');
+
+            //get newsrc for image
+            var newimgUrl = document.querySelector('.newimgUrl img')
+        
+            // Add a click event listener to each image
+            imgList.forEach(function (img) {
+                img.addEventListener('click', function () {
+                    // Update the src of the oldimgUrl to the clicked image src
+                    oldimgUrl.src = img.src;
+                    newPath = img.alt;                    
+                    newimgUrl.src = newPath;
+                });
+            });
+        </script>
     <div role="tooltip" id="el-tooltip-3480" aria-hidden="true" class="el-tooltip__popper is-dark"
         style="display: none; transform-origin: center bottom; z-index: 15485; position: absolute; top: 582px; left: 422px;"
         x-placement="top"><span>38</span>
